@@ -8,16 +8,15 @@
    <div class="wrapper">
       @@include('html/_header.htm',{})
       <main class="main__container">
-         <div class="select-wrapper">
-            <!-- При загрузке должно быть не видно (прописать стили для каждого конкретного случая (ширина или высота)) -->
-            <select id="" class="custom-select" style="opacity: 0; width: 100%;">
-               <option value="">1</option>
-               <option value="">2</option>
-               <option value="">3</option>
-               <option value="">4</option>
-            </select>
-         </div>
+         <div class="test" data-tippy-content>test</div>
       </main>
+
+      <div id="example" class="tooltip-element">
+         <a href="#" class="link">link</a>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod labore, numquam, sint dolorum optio omnis
+            deserunt voluptas tempore vel animi reiciendis voluptatibus saepe aspernatur corrupti minima aliquid veniam
+            iste sapiente.</p>
+      </div>
       @@include('html/_footer.htm',{})
    </div>
    @@include('html/_popup.htm',{})

@@ -1,6 +1,23 @@
-//Селектрик
-@import "../libs/selectric.scss";
+.tooltip-element {
+   padding: 5px;
+   border: 1px solid black;
+   border-radius: 5px;
+   background-color: gray;
+}
 
-.select-wrapper {
-   min-width: 200px;
+.link {
+   color: $selectColor;
+   @media (any-hover: hover) {
+      &:hover {
+         color: darken($selectColor, 20%);
+      }
+   }
+}
+
+.test {
+   @media (any-hover: hover) {
+      &:hover {
+         color: green;
+      }
+   }
 }

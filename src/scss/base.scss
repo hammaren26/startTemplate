@@ -2,8 +2,14 @@
 // Для подключения/отключения стилей конкретного єлемента формы смотри base/forms/forms.scss
 @import "base/forms/forms.scss";
 
+//файл с анимациями
+// @import "base/animations";
+
 // Стили попапов
 // @import "base/popup";
+
+//Мои стили попапов
+// @import "libs/popup";
 
 // Стили спойлеров
 //@import "base/spollers";
@@ -22,6 +28,9 @@
 
 // Стили для липкого блока
 // @import "base/sticky";
+
+//Стили для селектрика
+// @import "./libs/selectric";
 
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div c картинкой и классами)
@@ -125,3 +134,11 @@
       display: none;
    }
 }
+
+// ! стили для элементов динамического адаптива (чтоб они не показывались на старом месте)
+// указываем разрешение на котором они улетают в другой блок
+// @media screen and (max-width: 1199px) {
+//    [data-da]:not([data-da=""]):not([data-da]:not([data-da=""])._dynamic_adapt_) {
+//       display: none;
+//    }
+// }
