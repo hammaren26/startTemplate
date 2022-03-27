@@ -44,7 +44,7 @@ flsFunctions.isWebp();
 Документация:
 Сниппет (HTML): spollers
 */
-// flsFunctions.spollers();
+flsFunctions.spollers();
 
 /*
 Модуль работы с табами
@@ -84,7 +84,7 @@ import * as flsForms from "./files/forms/forms.js";
 // flsForms.formSubmit(true);
 
 /* (В работе) Работа с масками. */
-// flsForms.formMasks();
+flsForms.formMasks();
 
 /* Модуль формы "колличество" */
 // flsForms.formQuantity();
@@ -114,7 +114,7 @@ import * as flsForms from "./files/forms/forms.js";
 Документация плагина: https://atomiks.github.io/tippyjs/
 Сниппет (HTML): tip (добавляет атрибут с подсказкой для html тега)
 */
-import "./files/tippy.js";
+// import "./files/tippy.js";
 
 // Работа со слайдером (Swiper) ========================================================================================================================================================================================================================================================
 /*
