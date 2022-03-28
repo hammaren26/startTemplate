@@ -1,20 +1,34 @@
 /* my functions */
-function closest(el, selector) {
+
+const DOCUMENT = document;
+window.DOCUMENT = DOCUMENT;
+
+export function closest(elemSelector, parentSelector) {
+   const elem = DOCUMENT.querySelector(elemSelector);
    if (Element.prototype.closest) {
-      return el.closest(selector);
+      return elem.closest(parentSelector);
    }
-
-   let parent = el;
-
+   let parent = elem;
    while (parent) {
-      if (parent.matches(selector)) {
+      if (parent.matches(parentSelector)) {
          return parent;
       }
 
       parent = parent.parentElement;
    }
-
    return null;
+}
+
+export function siblings() {
+   const elem = DOCUMENT.querySelector(elemSelector);
+   var siblings = Array.prototype.slice.call(elem.parentNode.children);
+
+   for (var i = siblings.length; i--;) {
+      if (siblings[i] === el) {
+         siblings.splice(i, 1);
+         break;
+      }
+   }
 }
 
 

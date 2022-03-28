@@ -7,9 +7,3 @@ window.$ = window.jQuery = jQuery;
 import 'selectric';
 
 
-$(function () {
-   $('.custom-select').selectric({
-
-   });
-});
-
