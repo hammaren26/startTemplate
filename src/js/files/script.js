@@ -5,5 +5,7 @@
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 import 'selectric';
+import { checkInput, closest } from "./functions.js";
+
 
 

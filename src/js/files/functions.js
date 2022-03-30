@@ -3,8 +3,7 @@
 const DOCUMENT = document;
 window.DOCUMENT = DOCUMENT;
 
-export function closest(elemSelector, parentSelector) {
-   const elem = DOCUMENT.querySelector(elemSelector);
+export function closest(elem, parentSelector) {
    if (Element.prototype.closest) {
       return elem.closest(parentSelector);
    }
@@ -19,18 +18,44 @@ export function closest(elemSelector, parentSelector) {
    return null;
 }
 
-export function siblings() {
+export function checkInput(text_from_input) {
+   return /[^\s]/gim.test(text_from_input);
+}
+
+export function siblings(elemSelector) {
    const elem = DOCUMENT.querySelector(elemSelector);
+   console.log(elem);
    var siblings = Array.prototype.slice.call(elem.parentNode.children);
 
-   for (var i = siblings.length; i--;) {
-      if (siblings[i] === el) {
+   console.log(siblings);
+
+   for (let i = siblings.length; i--;) {
+      if (siblings[i] === elem) {
          siblings.splice(i, 1);
          break;
       }
    }
+
+   console.log(siblings);
 }
 
+
+function siblings1(elem) {
+   let siblings = [];
+   let sibling = elem;
+   while (sibling.previousSibling) {
+      sibling = sibling.previousSibling;
+      sibling.nodeType == 1 && siblings.push(sibling);
+   }
+
+   sibling = elem;
+   while (sibling.nextSibling) {
+      sibling = sibling.nextSibling;
+      sibling.nodeType == 1 && siblings.push(sibling);
+   }
+
+   return siblings;
+}
 
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
