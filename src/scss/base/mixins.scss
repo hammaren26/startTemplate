@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 //Подключение шрифта
 @mixin font($font_name, $file_name, $weight, $style) {
    @font-face {
@@ -14,15 +16,15 @@
    @return $result;
 }
 //REM
-@function rem($px) {
-   $result: math.div($px, 16) + rem;
-   @return $result;
-}
+// @function rem($px) {
+//    $result: math.div($px, 16) + rem;
+//    @return $result;
+// }
 //EM
-@function em($px, $current: 16) {
-   $result: math.div($px, $current) + em;
-   @return $result;
-}
+// @function em($px, $current: 16) {
+//    $result: math.div($px, $current) + em;
+//    @return $result;
+// }
 //Адаптивное свойство
 
 //Currency
@@ -51,7 +53,7 @@
    // Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
    $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
    $yIntersection: -$widthTo * $slope + $minSize;
-   $flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+   $flyValue: #{rem($yIntersection)} " + " #{$slope * 100}vw;
 
    $propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
 
@@ -90,7 +92,7 @@
    // Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
    $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
    $yIntersection: -$widthTo * $slope + $minSize;
-   $flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+   $flyValue: #{rem($yIntersection)} " + " #{$slope * 100}vw;
 
    $propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
 
@@ -109,5 +111,45 @@
    }
 }
 
-@mixin button-size($padding-y, $padding-x, $border-radius) {
+// @mixin button-size($padding-y, $padding-x, $border-radius, $font-size: 16px) {
+//    padding: $padding-x $padding-y;
+//    border-radius: $border-radius;
+//    > .button-title {
+//       font-size: $font-size;
+//    }
+// }
+
+// @mixin button-size2($selectors...) {
+//    @for $i from 0 to length($selectors) {
+//       #{nth($selectors, $i+1)} {
+//          $mul: $i + 1;
+//          border: 1px solid green;
+//          padding: 5px * $mul 10px * $mul;
+//          border-radius: 5px * $mul;
+//          font-size: 16px * $mul;
+//       }
+//    }
+// }
+
+// @include button-size2(".button-size-sm", ".button-size-md", ".button-size-xl");
+
+@mixin button-types($args...) {
+   @each $name, $color in meta.keywords($args) {
+      .button-type-#{$name} {
+         border: 2px solid $color;
+         color: $color;
+      }
+   }
+}
+
+@include button-types($success: #080, $error: #800, $info: #075698);
+
+@mixin hover {
+   &:not([disabled]):hover {
+      @content ('not_disabled');
+   }
+
+   &:hover {
+      @content ('disabled');
+   }
 }

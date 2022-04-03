@@ -1,0 +1,20 @@
+@use "sass:math" as math;
+
+a {
+   margin: 10px;
+   @include hover() using ($type) {
+      @if $type == "disabled" {
+         background-color: greenyellow;
+      }
+
+      @if $type == "not_disabled" {
+         background-color: blueviolet;
+      }
+   }
+}
+
+$color1: #00ff00;
+
+.test {
+   line-height: math.$pi;
+}
