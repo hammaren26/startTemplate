@@ -1,5 +1,7 @@
 @use "sass:meta";
 
+@use "sass:math" as math;
+
 //Подключение шрифта
 @mixin font($font_name, $file_name, $weight, $style) {
    @font-face {
@@ -16,15 +18,15 @@
    @return $result;
 }
 //REM
-// @function rem($px) {
-//    $result: math.div($px, 16) + rem;
-//    @return $result;
-// }
+@function rem($px) {
+   $result: math.div($px, 16) + rem;
+   @return $result;
+}
 //EM
-// @function em($px, $current: 16) {
-//    $result: math.div($px, $current) + em;
-//    @return $result;
-// }
+@function em($px, $current: 16) {
+   $result: math.div($px, $current) + em;
+   @return $result;
+}
 //Адаптивное свойство
 
 //Currency
